@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: berpinhe <berpinhe@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/13 17:21:05 by berpinhe          #+#    #+#             */
+/*   Updated: 2026/09/13 17:21:07 by berpinhe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_ezhelp4(int grid[4][4], int dir, int pos)
@@ -7,7 +19,7 @@ void	ft_ezhelp4(int grid[4][4], int dir, int pos)
 	i = 0;
 	while (i < 4)
 	{
-		if (dir == 0) 
+		if (dir == 0)
 			grid[i][pos] = i + 1;
 		else if (dir == 1)
 			grid[3 - i][pos] = i + 1;
@@ -21,25 +33,18 @@ void	ft_ezhelp4(int grid[4][4], int dir, int pos)
 
 void	ft_ezhelp1(int grid[4][4], int dir, int pos)
 {
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		if (dir == 0)
-			grid[0][pos] = 4;
-		else if (dir == 1)
-			grid[3][pos] = 4;
-		else if (dir == 2)
-			grid[pos][0] = 4;
-		else if (dir == 3)
-			grid[pos][3] = 4;
-		i++;
-	}
+	if (dir == 0)
+		grid[0][pos] = 4;
+	else if (dir == 1)
+		grid[3][pos] = 4;
+	else if (dir == 2)
+		grid[pos][0] = 4;
+	else if (dir == 3)
+		grid[pos][3] = 4;
 }
 
 void	ft_ezfill(int grid[4][4], int view[4][4])
-{ 
+{
 	int	dir;
 	int	pos;
 
@@ -54,10 +59,11 @@ void	ft_ezfill(int grid[4][4], int view[4][4])
 			if (view[dir][pos] == 1)
 				ft_ezhelp1(grid, dir, pos);
 			pos++;
-		}	
+		}
 		dir++;
 	}
 }
+
 void	ft_print_grid(int grid[4][4])
 {
 	int		i;
